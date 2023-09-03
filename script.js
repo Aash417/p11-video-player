@@ -33,9 +33,21 @@ function togglePlay() {
 video.addEventListener("ended", showPlayIcon);
 
 // Progress Bar ---------------------------------- //
+
+// calculate display time
+function displayTime(time) {
+	const minutes = Math.floor(time / 60);
+	let seconds = Math.floor(time % 60);
+	seconds = seconds < 10 ? `0${seconds}` : seconds;
+	return `${minutes}:${seconds}`;
+}
+
 function updateProgress() {
 	// console.log("currenttime", video.currentTime, "duration", video.duration);
 	progressBar.style.width = `${(video.currentTime / video.duration) * 100}%`;
+
+	currentTime.textContent = `${displayTime(video.currentTime)} / `;
+	duration.textContent = `${displayTime(video.duration)}`;
 }
 
 // Volume Controls --------------------------- //
