@@ -60,7 +60,7 @@ video {
 	z-index: 5;
 	display: flex;
 	justify-content: space-between;
-	opacity: 0;
+	/* opacity: 0; */
 	transition: all 0.5s ease-out 1s;
 }
 .show-controls:hover .controls-container {
@@ -86,12 +86,19 @@ video {
 
 /* Progress Bar */
 .progress-range {
+	height: 8px;
+	width: calc(100% - 30px);
+	background: rgba(116, 116, 116, 0.5);
 	margin: auto;
 	border-radius: 10px;
 	position: absolute;
 	left: 15px;
 	top: 15px;
 	cursor: pointer;
+	transition: height 0.1s ease-in-out;
+}
+.progress-range:hover {
+	height: 10px;
 }
 
 .progress-bar {
@@ -164,14 +171,22 @@ video {
 .speed {
 	margin-right: 15px;
 }
+select,
+option {
+	cursor: pointer;
+}
 
 select {
+	background: transparent;
 	color: var(--font-color);
 	border: none;
 	font-size: 18px;
 	position: relative;
 	top: -2.5px;
 	border-radius: 5px;
+}
+select:focus {
+	outline: none;
 }
 
 select > option {
