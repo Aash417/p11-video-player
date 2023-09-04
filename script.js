@@ -133,11 +133,8 @@ function closeFullscreen() {
 	video.classList.remove("video-fullscreen");
 }
 function toggleFullScreen() {
-	if (!fullscreen) {
-		openFullscreen(player);
-	} else {
-		closeFullscreen();
-	}
+	!fullscreen ? openFullscreen(player) : closeFullscreen();
+
 	fullscreen = !fullscreen;
 }
 
